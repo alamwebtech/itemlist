@@ -1,10 +1,38 @@
 
 
 // delete Method
-var delButton = document.querySelector("#book-list, ul");
-delButton.addEventListener("click", function(e){
+var list = document.querySelector("#book-list, ul");
+list.addEventListener("click", function(e){
   if(e.target.className === "delete"){
-    let li = e.target.parentElement;
+    const li = e.target.parentElement;
     li.parentNode.removeChild(li);
   }
 });
+
+// Adding to the list
+var addItem = document.forms["add-book"];
+addItem.addEventListener("submit", function(e){
+  e.preventDefault();
+  var value = addItem.querySelector('input[type="text"]').value;
+});
+
+// Creating Elements
+
+const li = document.createElement("li");
+const bookName = document.createElement("span");
+const deleteBtn = document.createElement("span");
+
+// add content
+
+deleteBtn.textContent = "delete";
+bookName.textContent=value;
+
+// Addinng Classes to the Elements
+
+bookName.classList.add("name");
+deleteBtn.classList.add("delete");
+
+// adding list or appending to the UL
+li.appendChild(bookName);
+li.appendChild(deleteBtn);
+list.appendChild(li);
