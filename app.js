@@ -1,9 +1,10 @@
-var titles = document.getElementsByClassName("title");
 
-// To check  if it is Array and if not then convert it to Array following methods.
-// console.log (Array.isArray(titles));
-// console.log(Array.isArray(Array.from(titles)));
 
-Array.from(titles).forEach(function(item){
-  return item;
-})
+// delete Method
+var delButton = document.querySelector("#book-list, ul");
+delButton.addEventListener("click", function(e){
+  if(e.target.className === "delete"){
+    let li = e.target.parentElement;
+    li.parentNode.removeChild(li);
+  }
+});
