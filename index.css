@@ -57,6 +57,7 @@ h1, h2{
     padding: 20px;
     border-left: 5px solid #ddd;
     margin: 20px 10px;
+    list-style-type: none;
 }
 
 #book-list li:hover{
@@ -89,7 +90,7 @@ h1, h2{
     font-size: 16px;
     border-radius: 4px 0 0 4px;
     box-sizing: border-box;
-    width: 300px;
+    width: 250px;
     float: left;
 }
 
@@ -110,7 +111,13 @@ h1, h2{
 }
 
 #add-book:after{
-    content: '';
+    content:'';
     display: block;
     clear: both;
+}
+#add-book #hide{
+    width: 30px;
+}
+#add-book label{
+    line-height:10px;
 }
