@@ -14,7 +14,7 @@ var addItem = document.forms["add-book"];
 addItem.addEventListener("submit", function(e){
   e.preventDefault();
   var value = addItem.querySelector('input[type="text"]').value;
-});
+
 
 // Creating Elements
 
@@ -32,7 +32,36 @@ bookName.textContent=value;
 bookName.classList.add("name");
 deleteBtn.classList.add("delete");
 
+
 // adding list or appending to the UL
 li.appendChild(bookName);
 li.appendChild(deleteBtn);
 list.appendChild(li);
+});
+
+// We can hide the booklist applying the below Method
+
+const hideBookList = document.querySelector("#hide");
+hideBookList.addEventListener("change", function(e){
+  if(hideBookList.checked){
+    list.style.display="none";
+  }else{
+    list.style.display = "initial"
+  }
+});
+
+
+// Searcing the book from the List
+const searchBook = document.forms["search-books"].querySelector("input");
+searchBook.addEventListener("keyup", function(e){
+  const term = e.target.value.toLowerCase();
+  const books = list.getElementsByTagName("li");
+  Array.from(books).forEach(function(book){
+    const title = book.firstElementChild.textContent;
+    if(title.toLowerCase().indexOf(term) != -1){
+      book.style.display="block";
+    }else{
+      book.style.display = "none";
+    }
+  });
+});
